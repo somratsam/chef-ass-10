@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import ViewRecipes from '../pages/ViewRecipes/ViewRecipes';
 
 const AllChefs = () => {
     const [chefData, setChefData] = useState([]);
@@ -22,6 +23,7 @@ const AllChefs = () => {
             <Row>
                 {chefData.map((chef) => (
                     <Col key={chef.id} xs={12} md={4}>
+                        
                         <Card className="mb-4 h-100 border-0 shadow ">
                             <Card.Img className='h-100' variant="top" src={chef.chefPicture} alt="" />
 
@@ -33,7 +35,7 @@ const AllChefs = () => {
                                         Likes: {chef.likes}</small>
                                 </Card.Text>
                                
-                                <Link to="/viewRecipes">
+                                <Link to={`/viewRecipes/${chef.id}`}>
                                 <Button variant="warning text-light fw-bold">View Recipes</Button>
                                 </Link>
                             </Card.Body>

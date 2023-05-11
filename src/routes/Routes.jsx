@@ -21,7 +21,7 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
-                path: 'viewRecipes',
+                path: '/viewRecipes/:chefId',
                 element: <ViewRecipes></ViewRecipes>
             },
             {

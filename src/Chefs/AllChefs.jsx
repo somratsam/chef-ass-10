@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const AllChefs = () => {
     const [chefData, setChefData] = useState([]);
@@ -27,11 +28,14 @@ const AllChefs = () => {
                             <Card.Body>
                                 <Card.Title>{chef.chefName}</Card.Title>
                                 <Card.Text>
-                                   <small> Years of Experience: {chef.yearsOfExperience}<br />
-                                    Number of Recipes: {chef.numberOfRecipes}<br />
-                                    Likes: {chef.likes}</small>
+                                    <small> Years of Experience: {chef.yearsOfExperience}<br />
+                                        Number of Recipes: {chef.numberOfRecipes}<br />
+                                        Likes: {chef.likes}</small>
                                 </Card.Text>
+                               
+                                <Link to="/viewRecipes">
                                 <Button variant="warning text-light fw-bold">View Recipes</Button>
+                                </Link>
                             </Card.Body>
                         </Card>
                     </Col>

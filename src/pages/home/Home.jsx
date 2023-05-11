@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import AllChefs from '../../Chefs/AllChefs';
+import FeaturedRecipes from '../ExtraSection/featuredRecipes';
+import ChefTipsAndTricks from '../ExtraSection/chefTipsAndTricks';
 
 const Home = () => {
     return (
@@ -23,6 +25,7 @@ const Home = () => {
                 </Col>
             </Row>
             <AllChefs></AllChefs>
+            <FeaturedRecipes></FeaturedRecipes> <ChefTipsAndTricks></ChefTipsAndTricks>
             
         </Container>
     );

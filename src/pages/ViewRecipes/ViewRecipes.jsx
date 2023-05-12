@@ -1,82 +1,77 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row, Toast } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 const ViewRecipes = () => {
-    const { chefId } = useParams();
-    const [chefData, setChefData] = useState(null);
+  const { chefId } = useParams();
+  const [chefData, setChefData] = useState(null);
+  const [showToast, setShowToast] = useState(false);
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/allData/${chefId}`)
-            .then((response) => response.json())
-            .then((data) => {
-                setChefData(data);
-            })
-            .catch((error) => {
-                console.log('Error fetching chef data:', error);
-            });
-    }, [chefId]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/allData/${chefId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setChefData(data);
+      })
+      .catch((error) => {
+        console.log('Error fetching chef data:', error);
+      });
+  }, [chefId]);
 
-    if (!chefData) {
-        return <div>Loading...</div>;
-    }
+  const handleFavoriteClick = () => {
+    setShowToast(true);
+  };
 
-    return (
-        // <div>
-        //   <h1>{chefData.chefName}</h1>
-        //   <img src={chefData.chefPicture} alt={chefData.chefName} />
-        //   <p>{chefData.description}</p>
-        // </div>
+  if (!chefData) {
+    return <div>Loading...</div>;
+  }
 
-        <Container>
-
-            {/* <Row>
-
-                <Col xs={12} md={4}>
-
-                    <Card className="mb-4 h-100 border-0 shadow ">
-                        <Card.Img className='h-100' variant="top" src={chefData.chefPicture} alt="" />
-
-                        <Card.Body>
-                            <Card.Title>{chefData.chefName}</Card.Title>
-                            <Card.Text>
-                                <small> Years of Experience: {chefData.yearsOfExperience}<br />
-                                    Number of Recipes: {chefData.numberOfRecipes}<br />
-                                    Likes: {chefData.likes} <br />
-                                    Description: {chefData.description}</small>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-
-            </Row> */}
-
-            <Row style={{ paddingTop: "5rem" }}>
-                <Col xs={12} md={6}>
-                    <div style={{ paddingTop: "3rem" }}>
-
-                        <h2 className='fw-bold'>{chefData.chefName}</h2>
-                       <div className='pt-3'>
-                       <small> Years of Experience: {chefData.yearsOfExperience}<br />
-                            Number of Recipes: {chefData.numberOfRecipes}<br />
-                            Likes: {chefData.likes} <br />
-                            Description: {chefData.description}</small>
-
-                       </div>
-                    </div>
-                </Col>
-                <Col xs={12} md={6}>
-                    <div>
-                        <img className='w-100' src={chefData.chefPicture} alt="" />
-                    </div>
-                </Col>
-            </Row>
-
-
-        </Container>
-    );
-
-
+  return (
+    <Container>
+      <Row style={{ paddingTop: '5rem' }}>
+        <Col xs={12} md={6}>
+          <div>
+            <h2 className='fw-bold'>{chefData.chefName}</h2>
+            <div className='my-3'>
+              <small>
+                <strong>Years of Experience:</strong> {chefData.yearsOfExperience}<br />
+                <strong>Number of Recipes:</strong> {chefData.numberOfRecipes}<br />
+                <strong>Likes:</strong> {chefData.likes} <br />
+                <strong>Description:</strong> {chefData.description} <br />
+                <strong>Recipe name:</strong>
+                <ul>
+                  {chefData.recipeName.map((recipe, index) => (
+                    <li key={index}>{recipe}</li>
+                  ))}
+                </ul>
+                <br />
+                <strong>Ingredients:</strong>
+                <ul>
+                  {chefData.ingredients.map((recipe, index) => (
+                    <li key={index}>{recipe}</li>
+                  ))}
+                </ul>
+                <br />
+                <strong>Cooking method:</strong> {chefData.cookingMethod} <br />
+                <strong>Rating:</strong> {chefData.rating}
+              </small>
+            </div>
+            <Button className='fw-bold bg-warning border-0' disabled={showToast} onClick={handleFavoriteClick}>
+              Favorite
+            </Button>
+            <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
+              <Toast.Body className='bg-success rounded text-white'>This recipe is your favorite.</Toast.Body>
+            </Toast>
+          </div>
+        </Col>
+        <Col xs={12} md={6}>
+          <div style={{ height: '50rem' }}>
+            <img className='w-100' src={chefData.chefPicture} alt='' />
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default ViewRecipes;

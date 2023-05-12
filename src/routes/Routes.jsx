@@ -5,6 +5,8 @@ import Blog from "../pages/blog/Blog";
 import ViewRecipes from "../pages/ViewRecipes/ViewRecipes";
 import FeaturedRecipes from "../pages/ExtraSection/featuredRecipes";
 import ChefTipsAndTricks from "../pages/ExtraSection/chefTipsAndTricks";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const router = createBrowserRouter([
 
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
                 path: 'ChefTipsAndTricks',
                 element: <ChefTipsAndTricks></ChefTipsAndTricks>
             },
+            {
+                path: 'login',
+                element: <Login></Login>
+            },
+            {
+                path: 'register',
+                element: <Register></Register>
+            }
         ]
     }
 ])

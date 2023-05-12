@@ -1,8 +1,11 @@
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
+    const {user} = useContext(AuthContext)
     return (
         <Navbar  bg="light" expand="lg">
             <Container>
@@ -12,6 +15,11 @@ const Header = () => {
                     <Nav className="mx-auto">
                         <Nav.Link className='fw-bold' as={Link} to="/">Home</Nav.Link>
                         <Nav.Link className='fw-bold' as={Link} to="/blog">Blog</Nav.Link>
+                      { user && <Nav className='fw-bold'><FaUserCircle></FaUserCircle></Nav>}
+                         
+                      <Link to= "/login"> { user ? <Button>Logout</Button> :
+                        <Button>Login</Button> }</Link>
+                        
                        
 
 

@@ -6,7 +6,7 @@ import Footer from '../shared/Footer';
 
 
 const Main = () => {
-//   const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Simulate a loading delay

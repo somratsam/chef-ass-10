@@ -60,7 +60,7 @@ const Login = () => {
                 setErrorMessage('Authentication popup was cancelled by the user.');
                 console.log('Authentication popup was cancelled by the user');
             } else if (error.code === 'auth/account-exists-with-different-credential') {
-                setErrorMessage('Account exists with different credential')
+                setErrorMessage('Account Not Found')
                
             } else {
                 setErrorMessage('An error occurred. Please try again.');
@@ -89,7 +89,7 @@ const Login = () => {
                 <br />
                 <Form.Text className="text-light">
                     Don't have an account?{' '}
-                    <Link to="/register" className="text-decoration-none">
+                    <Link to="/register" className="text-decoration-none fw-bold">
                         Register
                     </Link>
                 </Form.Text>

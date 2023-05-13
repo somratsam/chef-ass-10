@@ -52,7 +52,7 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name="password" placeholder="Password" required />
-                    {errorMessage && <Form.Text className="text-danger">{errorMessage}</Form.Text>}
+                    {errorMessage && <Form.Text className="text-danger fw-bold">{errorMessage}</Form.Text>}
                 </Form.Group>
 
                 <Button variant="light rounded-5 text-dark fw-bold" type="Login">
@@ -61,7 +61,7 @@ const Register = () => {
                 <br />
                 <Form.Text className="text-light">
                     Already have an account?{' '}
-                    <Link to="/login" className="text-decoration-none">
+                    <Link to="/login" className="text-decoration-none fw-bold">
                         Login
                     </Link>
                 </Form.Text>

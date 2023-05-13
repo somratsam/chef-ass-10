@@ -12,4 +12,5 @@
 - Create Auth provider to protect the rout
 - Create Responsive Home page
 - Create Footer
-- Live site link : 
+- Create Error page
+- Live site link : https://the-endless-meal.web.app

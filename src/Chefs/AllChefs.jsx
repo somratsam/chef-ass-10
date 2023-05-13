@@ -18,13 +18,13 @@ const AllChefs = () => {
     }, []);
 
     return (
-        <Container>
+        <Container >
             <h1>Chef's List</h1>
             <Row>
                 {chefData.map((chef) => (
                     <Col key={chef.id} xs={12} md={4}>
                         
-                        <Card className="mb-4 h-100 border-0 shadow ">
+                        <Card className="mb-4 h-100 border-0 shadow bg-dark text-white ">
                             <Card.Img className='h-100' variant="top" src={chef.chefPicture} alt="" />
 
                             <Card.Body>
@@ -36,7 +36,7 @@ const AllChefs = () => {
                                 </Card.Text>
                                
                                 <Link to={`/viewRecipes/${chef.id}`}>
-                                <Button variant="warning text-light fw-bold">View Recipes</Button>
+                                <Button variant="light rounded-5 text-dark fw-bold">View Recipes</Button>
                                 </Link>
                             </Card.Body>
                         </Card>

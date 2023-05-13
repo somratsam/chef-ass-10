@@ -34,7 +34,7 @@ const ViewRecipes = () => {
     }
 
     return (
-        <Container>
+        <Container  > 
             <Row style={{ paddingTop: '5rem' }}>
                 <Col xs={12} md={6}>
                     <div>
@@ -84,7 +84,7 @@ const ViewRecipes = () => {
                 </Col>
                 <Col xs={12} md={6}>
                     <div style={{ height: '50rem' }}>
-                        <img className="w-100" src={chefData.chefPicture} alt="" />
+                        <img className="w-100 border border-dark border-3" src={chefData.chefPicture} alt="" />
                     </div>
                 </Col>
             </Row>

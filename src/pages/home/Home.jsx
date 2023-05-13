@@ -20,7 +20,7 @@ const Home = () => {
                 </Col>
                 <Col xs={12} md={6}>
                     <div>
-                        <img className='w-100' src="https://i.ibb.co/PMcNwnj/istockphoto-1190330112-170667a.jpg" alt="Banner" />
+                        <img className='w-100 ' src="https://i.ibb.co/C1djMhF/istockphoto-1190330112-170667a.png" alt="Banner" />
                     </div>
                 </Col>
             </Row>

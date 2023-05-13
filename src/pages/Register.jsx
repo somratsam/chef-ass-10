@@ -25,7 +25,7 @@ const Register = () => {
     }
 
     return (
-        <Container className='w-25 mx-auto pt-3'>
+        <Container className='w-25 mx-auto mt-5'>
             <h3>Please Register</h3>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -49,11 +49,11 @@ const Register = () => {
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
 
-                <Button variant="primary" type="Login">
+                <Button variant="light rounded-5 text-dark fw-bold" type="Login">
                     Register
                 </Button>
                 <br />
-                <Form.Text>
+                <Form.Text className='text-light'>
                     Already have an account?{' '}
                     <Link to="/login" className="text-decoration-none">
                         Login

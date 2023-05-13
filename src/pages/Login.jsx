@@ -60,7 +60,7 @@ const Login = () => {
       };
 
     return (
-        <Container className='w-25 mx-auto pt-3'>
+        <Container className='w-25 mx-auto  mt-5 bg-opacity-75 text-light  '>
             <h3>Please Login</h3>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -73,11 +73,11 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
-                <Button variant="primary" type="Login">
+                <Button variant="light rounded-5 text-dark fw-bold" type="Login">
                     Login
                 </Button>
                 <br />
-                <Form.Text>
+                <Form.Text className='text-light'>
                     Don't have an account?{' '}
                     <Link to="/register" className="text-decoration-none">
                         Register
@@ -86,7 +86,7 @@ const Login = () => {
                 <br />
 
 
-                <Form.Text className='fw-bold'> Or Login with
+                <Form.Text className='fw-bold text-light'> Or Login with
                     <Button className='border-0' variant="" onClick={handleGoogleLogin}><FcGoogle></FcGoogle>
                     </Button>
                 </Form.Text>

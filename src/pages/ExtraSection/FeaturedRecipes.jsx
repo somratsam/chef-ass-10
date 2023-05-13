@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 
 const FeaturedRecipes = () => {
   const [featuredRecipesData, setFeaturedRecipesData] = useState([]);
@@ -12,12 +12,12 @@ const FeaturedRecipes = () => {
   }, []);
 
   return (
-    <div>
+    <Container>
       <h2 className='text-center fw-bold my-5'>Featured Recipes</h2>
       <Row>
         {featuredRecipesData.map(recipe => (
           <Col key={recipe.id}>
-            <Card className='h-100' style={{ width: '18rem' }}>
+            <Card className='h-100 border-0 shadow bg-dark text-white mx-auto' style={{ width: '18rem' }}>
               <Card.Img variant="top" src={recipe.image} alt={recipe.title} />
               <Card.Body>
                 <Card.Title>{recipe.title}</Card.Title>
@@ -27,7 +27,7 @@ const FeaturedRecipes = () => {
           </Col>
         ))}
       </Row>
-    </div>
+    </Container>
   );
 };
 

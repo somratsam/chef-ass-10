@@ -16,7 +16,7 @@ const Main = () => {
   }, []);
 
   return (
-    <div>
+    <div className='bg-dark text-white bg-opacity-75'>
       {!isLoading && <Header />}
       {isLoading ? (
         <div style={{height: '100vh'}} className="spinner-container d-flex align-items-center justify-content-center">

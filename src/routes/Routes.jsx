@@ -8,7 +8,7 @@ import ChefTipsAndTricks from "../pages/ExtraSection/chefTipsAndTricks";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
-
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
 
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/viewRecipes/:chefId',
-                element: <ViewRecipes></ViewRecipes>
+                element: <PrivateRoute><ViewRecipes></ViewRecipes></PrivateRoute>
                 
             },
             {

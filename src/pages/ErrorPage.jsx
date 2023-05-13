@@ -7,7 +7,7 @@ const ErrorPage = () => {
         <div>
             <section className='container text-center'>
                 <div className=''>
-                    {/* <FaceFrownIcon className=' text-warning w-25' /> */}
+                  
                     <div className=''>
                         <h2 className='text-warning' style={{ fontSize: '4rem' }}>
                            <img className='w-100' src="https://i.ibb.co/NNs33Xx/147-1473883-404-error-404-not-found-png-thumbnail.png" alt="" />

@@ -4,13 +4,9 @@ import AllChefs from '../../Chefs/AllChefs';
 import FeaturedRecipes from '../ExtraSection/featuredRecipes';
 import ChefTipsAndTricks from '../ExtraSection/chefTipsAndTricks';
 
-
-
 const Home = () => {
     return (
         <Container>
-
-
             <Row>
                 <Col xs={12} md={6}>
                     <div style={{paddingTop: "3rem"}}>

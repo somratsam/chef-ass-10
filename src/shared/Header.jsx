@@ -9,8 +9,9 @@ const Header = () => {
   const location = useLocation();
 
   const handleLogout = () => {
-    // Perform logout actions
-    logout();
+    logout()
+    .then()
+    .catch(error => console.log(error))
   };
 
   return (
@@ -42,7 +43,8 @@ const Header = () => {
           <Nav>
             {user && (
               <Nav.Item className="fw-bold text-white">
-                <FaUserCircle /> {user.name} {/* Display the user's name */}
+                <FaUserCircle style={{ fontSize: '2rem',
+            paddingRight: '10px' }} /> {user.name} 
               </Nav.Item>
             )}
             {user ? (

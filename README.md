@@ -9,4 +9,7 @@
 - Create Login and Register Page
 - Create Blog Page
 - Create Extra Section about Chefs
+- Create Auth provider to protect the rout
+- Create Responsive Home page
 - Create Footer
+- Live site link : 

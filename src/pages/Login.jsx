@@ -1,7 +1,7 @@
 
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import app from '../firebase/firebase.config';
@@ -12,11 +12,15 @@ import { VscGithub } from 'react-icons/vsc';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+    console.log('log in page location', location);
+    const from = location.state?.from?.pathname || '/'
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const [errorMessage, setErrorMessage] = useState('');
-
+    
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -28,46 +32,42 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setErrorMessage('');
+                navigate(from, { replace: true })
             })
             .catch((error) => {
                 setErrorMessage('Invalid email or password');
                 console.log(error);
-                
+
             });
-            
+
     };
 
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
-            // Handle Google sign-in success
-            // Access the user information from `result.user`
+            
         } catch (error) {
-            // Handle Google sign-in error
+        
             console.log(error);
         }
     };
     const handleGitHubLogin = async () => {
         try {
-          const result = await signInWithPopup(auth, githubProvider);
-          // Handle GitHub sign-in success
-          // Access the user information from `result.user`
+            const result = await signInWithPopup(auth, githubProvider);
+            
         } catch (error) {
-          if (error.code === 'auth/cancelled-popup-request') {
-            // User cancelled the authentication popup
-            console.log('Authentication popup was cancelled by the user');
-          } else if (error.code === 'auth/account-exists-with-different-credential') {
-            // Handle account exists with different credential error
-            // You can show a message or provide options to sign in with a different provider
-            console.log('Account exists with different credential');
-          } else {
-            // Handle other errors
-            console.log(error);
-          }
+            if (error.code === 'auth/cancelled-popup-request') {
+                setErrorMessage('Authentication popup was cancelled by the user.');
+                console.log('Authentication popup was cancelled by the user');
+            } else if (error.code === 'auth/account-exists-with-different-credential') {
+                setErrorMessage('Account exists with different credential')
+               
+            } else {
+                setErrorMessage('An error occurred. Please try again.');
+                console.log(error);
+            }
         }
-      };
-      
-    
+    };
 
     return (
         <Container className="w-25 mx-auto mt-5">

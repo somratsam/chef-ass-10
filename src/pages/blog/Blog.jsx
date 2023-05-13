@@ -6,7 +6,20 @@ const BlogDocument = () => (
     <Document>
         <Page>
             <Text>
-                <h1>hello</h1>
+                1. What is the differences between uncontrolled and controlled components?
+                Uncontrolled Components: In uncontrolled components, the form data is managed by the DOM itself. The component does not keep track of the input's state.
+                Controlled Components: In controlled components, the form data is managed by the component's state. The component keeps track of the input's state and updates it accordingly.
+
+                2. How to validate React props using PropTypes?
+                In React, PropTypes is a library used for type-checking the props passed to components. It provides a way to specify the expected types and structure of props, allowing you to catch potential errors and bugs during development. PropTypes supports various types such as string, number, boolean, array, object, and more. It also allows you to define custom validation functions and specify default values for props.
+
+                3. What is the difference between Node.js and Express.js?
+                Node.js is a runtime environment that allows you to run JavaScript code outside of a web browser. It is built on the V8 JavaScript engine and provides an event-driven, non-blocking I/O model, making it efficient for handling concurrent requests.
+                Express.js is a minimal and flexible web application framework built on top of Node.js. It provides a set of features and tools for building web applications and APIs. Express.js simplifies the process of building web servers by providing a high-level abstraction over the lower-level HTTP functionality of Node.js.
+
+                4. What is a custom hook, and why will you create a custom hook?
+                A custom hook in React is a JavaScript function that starts with the prefix "use" and allows you to reuse stateful logic between different components. It enables you to extract common logic from components and share it across your application.
+
             </Text>
         </Page>
     </Document>
@@ -64,3 +77,5 @@ const Blog = () => {
 };
 
 export default Blog;
+
+

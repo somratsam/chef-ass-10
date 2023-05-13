@@ -5,48 +5,60 @@ import { AuthContext } from '../Providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
-    const location = useLocation();
+  const { user, logout } = useContext(AuthContext);
+  const location = useLocation();
 
-    return (
-        <Navbar className='bg-dark text-white' bg="light" expand="lg">
-            <Container>
-                <Navbar.Brand className='fw-bold text-white' href="#home">The Endless Meal</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mx-auto">
-                    
-                        <Nav.Link
-                            style={location.pathname === '/' ? { color: 'blue' } : {}}
-                            className="fw-bold text-white"
-                            as={Link}
-                            to="/"
-                        >
-                            Home
-                        </Nav.Link>
+  const handleLogout = () => {
+    // Perform logout actions
+    logout();
+  };
 
-                        <Nav.Link
-                            style={location.pathname === '/blog' ? { color: 'blue' } : {}}
-                            className="fw-bold text-white"
-                            as={Link}
-                            to="/blog"
-                        >
-                            Blog
-                        </Nav.Link>
-
-                    </Nav>
-                    {user && <Nav className='fw-bold'><FaUserCircle /></Nav>}
-                    <Link to="/login">
-                        {user ? (
-                            <Button variant="light rounded-5 text-dark fw-bold">Logout</Button>
-                        ) : (
-                            <Button variant="light rounded-5 text-dark fw-bold">Login</Button>
-                        )}
-                    </Link>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
-    );
+  return (
+    <Navbar className="bg-dark text-white" bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand className="fw-bold text-white" href="#home">
+          The Endless Meal
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mx-auto">
+            <Nav.Link
+              as={Link}
+              to="/"
+              className="fw-bold text-white"
+              activeclassname="active"
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/blog"
+              className="fw-bold text-white"
+              activeclassname="active"
+            >
+              Blog
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            {user && (
+              <Nav.Item className="fw-bold text-white">
+                <FaUserCircle /> {user.name} {/* Display the user's name */}
+              </Nav.Item>
+            )}
+            {user ? (
+              <Button variant="light rounded-5 text-dark fw-bold" onClick={handleLogout}>
+                Logout
+              </Button>
+            ) : (
+              <Link to="/login">
+                <Button variant="light rounded-5 text-dark fw-bold">Login</Button>
+              </Link>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 };
 
 export default Header;

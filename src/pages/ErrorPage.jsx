@@ -10,15 +10,16 @@ const ErrorPage = () => {
                     {/* <FaceFrownIcon className=' text-warning w-25' /> */}
                     <div className=''>
                         <h2 className='text-warning' style={{ fontSize: '4rem' }}>
-                            <span>Error</span>
+                           <img className='w-100' src="https://i.ibb.co/NNs33Xx/147-1473883-404-error-404-not-found-png-thumbnail.png" alt="" />
                             {status || 404}
-                        </h2>
-                        <h2 className='fw-bold text-danger'>
-                            {error?.message}
                         </h2>
                         <div className='success mt-3'> <Link to='/' className=' text-decoration-none'>
                             Back to homepage
                         </Link></div>
+                        <h2 className='fw-bold text-danger'>
+                            {error?.message}
+                        </h2>
+                       
                     </div>
                 </div>
             </section>

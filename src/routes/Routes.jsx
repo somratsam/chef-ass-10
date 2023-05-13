@@ -7,6 +7,7 @@ import FeaturedRecipes from "../pages/ExtraSection/featuredRecipes";
 import ChefTipsAndTricks from "../pages/ExtraSection/chefTipsAndTricks";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ErrorPage from "../pages/ErrorPage";
 
 
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',

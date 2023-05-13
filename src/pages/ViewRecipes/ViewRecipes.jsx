@@ -10,6 +10,8 @@ const ViewRecipes = () => {
     const [rating, setRating] = useState(0);
 
     useEffect(() => {
+
+        
         fetch(`http://localhost:5000/allData/${chefId}`)
             .then((response) => response.json())
             .then((data) => {
@@ -34,7 +36,7 @@ const ViewRecipes = () => {
     }
 
     return (
-        <Container  > 
+        <Container  >
             <Row style={{ paddingTop: '5rem' }}>
                 <Col xs={12} md={6}>
                     <div>
@@ -74,7 +76,7 @@ const ViewRecipes = () => {
 
                             </small>
                         </div>
-                        <Button className="fw-bold bg-warning border-0" disabled={showToast} onClick={handleFavoriteClick}>
+                        <Button variant="light rounded-5 text-dark fw-bold" disabled={showToast} onClick={handleFavoriteClick}>
                             Favorite
                         </Button>
                         <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>

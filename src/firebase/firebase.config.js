@@ -5,13 +5,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log('environment variable', import.meta.env.VITE_API_KEY);
 const firebaseConfig = {
-  apiKey: "AIzaSyAC6DRn_pp9-5xZnHCK4L2GJYLpRYq7C_o",
-  authDomain: "the-endless-meal.firebaseapp.com",
-  projectId: "the-endless-meal",
-  storageBucket: "the-endless-meal.appspot.com",
-  messagingSenderId: "286495456289",
-  appId: "1:286495456289:web:6b05bc889c227b30a3b760"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID,
 };
 
 // Initialize Firebase

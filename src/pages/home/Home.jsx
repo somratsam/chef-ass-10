@@ -4,6 +4,8 @@ import AllChefs from '../../Chefs/AllChefs';
 import FeaturedRecipes from '../ExtraSection/featuredRecipes';
 import ChefTipsAndTricks from '../ExtraSection/chefTipsAndTricks';
 
+
+
 const Home = () => {
     return (
         <Container>

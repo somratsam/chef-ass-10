@@ -20,7 +20,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const [errorMessage, setErrorMessage] = useState('');
-    
+
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -45,23 +45,23 @@ const Login = () => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
-            
+
         } catch (error) {
-        
+
             console.log(error);
         }
     };
     const handleGitHubLogin = async () => {
         try {
             const result = await signInWithPopup(auth, githubProvider);
-            
+
         } catch (error) {
             if (error.code === 'auth/cancelled-popup-request') {
                 setErrorMessage('Authentication popup was cancelled by the user.');
                 console.log('Authentication popup was cancelled by the user');
             } else if (error.code === 'auth/account-exists-with-different-credential') {
                 setErrorMessage('Account Not Found')
-               
+
             } else {
                 setErrorMessage('An error occurred. Please try again.');
                 console.log(error);
@@ -70,7 +70,7 @@ const Login = () => {
     };
 
     return (
-        <Container className="w-25 mx-auto mt-5">
+        <Container  className="w-25 mx-auto mt-5" >
             <h3>Please Login</h3>
             <Form onSubmit={handleLogin}>
                 {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
@@ -109,7 +109,6 @@ const Login = () => {
 };
 
 export default Login;
-
 
 
 

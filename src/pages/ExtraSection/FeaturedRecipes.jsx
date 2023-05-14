@@ -5,7 +5,7 @@ const FeaturedRecipes = () => {
   const [featuredRecipesData, setFeaturedRecipesData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/featuredRecipes')
+    fetch('https://chef-server-side-ass-10-somratsam.vercel.app/featuredRecipes')
       .then(response => response.json())
       .then(data => setFeaturedRecipesData(data.featuredRecipes))
       .catch(error => console.log('Error fetching featured recipes:', error));

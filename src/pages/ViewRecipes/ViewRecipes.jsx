@@ -12,7 +12,7 @@ const ViewRecipes = () => {
     useEffect(() => {
 
         
-        fetch(`http://localhost:5000/allData/${chefId}`)
+        fetch(`https://chef-server-side-ass-10-somratsam.vercel.app/${chefId}`)
             .then((response) => response.json())
             .then((data) => {
                 setChefData(data);

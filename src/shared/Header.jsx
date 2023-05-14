@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <Navbar className="bg-dark text-white" bg="light" expand="lg">
+    <Navbar className="bg-dark text-white"  expand="lg">
       <Container>
         <Navbar.Brand className="fw-bold text-white" href="#home">
           The Endless Meal

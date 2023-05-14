@@ -7,7 +7,7 @@ const AllChefs = () => {
     const [chefData, setChefData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/allData")
+        fetch("https://chef-server-side-ass-10-somratsam.vercel.app/allData")
             .then((response) => response.json())
             .then((data) => {
                 setChefData(data);
@@ -24,7 +24,7 @@ const AllChefs = () => {
                 {chefData.map((chef) => (
                     <Col key={chef.id} xs={12} md={4}>
                         
-                        <Card className="mb-4 h-100 border-0 shadow bg-dark text-white ">
+                        <Card className="  mb-4 h-100 border-0 shadow bg-dark text-white ">
                             <Card.Img className='h-100' variant="top" src={chef.chefPicture} alt="" />
 
                             <Card.Body>

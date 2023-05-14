@@ -5,7 +5,7 @@ const ChefTipsAndTricks = () => {
   const [chefTipsData, setChefTipsData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/chefTipsAndTricks')
+    fetch('https://chef-server-side-ass-10-somratsam.vercel.app/chefTipsAndTricks')
       .then(response => response.json())
       .then(data => setChefTipsData(data.chefTipsAndTricks))
       .catch(error => console.log('Error fetching chef tips and tricks:', error));
